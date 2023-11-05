@@ -1,0 +1,23 @@
+name: example
+summary: test tray
+description: test tray
+version: "0.1"
+grade: stable
+base: core22
+confinement: strict
+
+apps:
+  example:
+    command: bin/example
+    extensions: [gnome]
+    plugs:
+      - desktop
+      - desktop-legacy
+parts:
+  example:
+    build-snaps:
+      - go
+    plugin: go
+    source-type: git
+    source: https://github.com/fyne-io/systray
+    source-subdir: example
